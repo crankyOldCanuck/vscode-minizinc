@@ -1,5 +1,5 @@
 {
-    "name": "vsc-minizinc",
+    "name": "vscode-minizinc",
     "displayName": "MiniZinc",
     "description": "Language Support for the MiniZinc modelling language",
     "version": "0.0.1",
@@ -17,12 +17,10 @@
     },
     "categories": [
         "Programming Languages",
-        "Snippets",
-        "Linters"
+        "Snippets"
     ],
     "keywords": [
         "minizinc",
-        "linter",
         "snippet"
     ],
     "activationEvents": [
