@@ -1,0 +1,119 @@
+{
+    "name": "vsc-minizinc",
+    "displayName": "MiniZinc",
+    "description": "Language Support for the MiniZinc modelling language",
+    "version": "0.0.1",
+    "author": "crankyOldCanuck",
+    "publisher": "crankyOldCanuck",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/crankyOldCanuck/vsc-minizinc"
+    },
+    "bugs": {
+        "url": "https://github.com/crankyOldCanuck/vsc-minizinc/issues"
+    },
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets",
+        "Linters"
+    ],
+    "keywords": [
+        "minizinc",
+        "linter",
+        "snippet"
+    ],
+    "activationEvents": [
+        "onLanguage:minizinc"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "minizinc.run",
+            "title": "MiniZinc: run without data file"
+        }, {
+            "command": "minizinc.dzn",
+            "title": "MiniZinc: select data file and run"
+        }, {
+            "command": "minizinc.repeat",
+            "title": "MiniZinc: repeat last command"
+        }, {
+            "command": "minizinc.options",
+            "title": "MiniZinc: set command options"
+        }],
+        "menus": {
+            "commandPalette": [{
+                "command": "minizinc.run",
+                "when": "resourceExtname =~ /mzn|fzn/",
+                "group": "minizinc@1"
+            }, {
+                "command": "minizinc.dzn",
+                "when": "resourceExtname =~ /mzn|fzn/",
+                "group": "minizinc@2"
+            }, {
+                "command": "minizinc.repeat",
+                "when": "editorLangId == minizinc",
+                "group": "minizinc@3"
+            }, {
+                "command": "minizinc.options",
+                "when": "editorLangId == minizinc",
+                "group": "minizinc@4"
+            }],
+            "editor/context": [{
+                "command": "minizinc.run",
+                "when": "resourceExtname =~ /mzn|fzn/",
+                "group": "minizinc@1"
+            }, {
+                "command": "minizinc.dzn",
+                "when": "resourceExtname =~ /mzn|fzn/",
+                "group": "minizinc@2"
+            }, {
+                "command": "minizinc.repeat",
+                "when": "editorLangId == minizinc",
+                "group": "minizinc@3"
+            }, {
+                "command": "minizinc.options",
+                "when": "editorLangId == minizinc",
+                "group": "minizinc@4"
+            }]
+        },
+        "grammars": [{
+            "language": "minizinc",
+            "scopeName": "source.mzn",
+            "path": "./syntaxes/minizinc.tmLanguage"
+        }],
+        "languages": [{
+            "id": "minizinc",
+            "aliases": [
+                "MiniZinc",
+                "minizinc"
+            ],
+            "extensions": [
+                ".mzn",
+                ".fzn",
+                ".dzn"
+            ],
+            "configuration": "./language-configuration.json"
+        }],
+        "snippets": [{
+            "language": "minizinc",
+            "path": "./snippets/minizinc.json"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^3.1.4",
+        "vscode": "^1.1.25",
+        "tslint": "^5.8.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    }
+}

@@ -1,0 +1,432 @@
+{
+    "Array Declaration": {
+        "body": "array[${1:int}] of ${2:var int}: ${3:array};",
+        "description": "Array declaration",
+        "prefix": "arr"
+    },
+    "Forall": {
+        "body": "forall(${1:i in ${2:N}}) ($3)",
+        "description": "For all predicate",
+        "prefix": "for"
+    },
+    "Function": {
+        "body": "function $3: ${1:foo}($2) = ${4:true}",
+        "description": "Function definition",
+        "prefix": "func"
+    },
+    "Globals": {
+        "body": "include \"globals.mzn\";",
+        "description": "Import global constraints",
+        "prefix": "inc"
+    },
+    "Predicate": {
+        "body": "predicate ${1:foo}($2) = ${3:true}",
+        "description": "Predicate definition",
+        "prefix": "pred"
+    },
+    "Set curly": {
+        "body": "set of ${1:type}: ${2:name} = {${3:vals}};",
+        "description": "Set variable, range",
+        "prefix": "set"
+    },
+    "Set range": {
+        "body": "set of ${1:type}: ${2:name} = ${3:l}..${4:u};",
+        "description": "Set variable, range",
+        "prefix": "set"
+    },
+    "Solve Maximize": {
+        "body": "solve maximize ${1:objective};",
+        "description": "Solve maximize statement",
+        "prefix": "max"
+    },
+    "Solve Minimize": {
+        "body": "solve minimize ${1:objective};",
+        "description": "Solve minimize statement",
+        "prefix": "min"
+    },
+    "Solve Satisfy": {
+        "body": "solve satisfy;",
+        "description": "Solve satisfy statement",
+        "prefix": "sat"
+    },
+    "Sum": {
+        "body": "sum(i in ${1:1}..${2:n} where $3) ($4)",
+        "description": "Sum predicate",
+        "prefix": "sum"
+    },
+    "all_different": {
+        "body": "all_different(${1:x});",
+        "description": "Constrain the array x to be all different.",
+        "prefix": "all"
+    },
+    "all_disjoint": {
+        "body": "all_disjoint(${1:S});",
+        "description": "Constrain the array of sets of integers S to be pairwise disjoint.",
+        "prefix": "all"
+    },
+    "all_equal": {
+        "body": "all_equal(${1:x});",
+        "description": "Constrain the array x to be all equal.",
+        "prefix": "all"
+    },
+    "alldifferent": {
+        "body": "alldifferent(${1:x});",
+        "description": "Constrain the array x to be all different.",
+        "prefix": "all"
+    },
+    "alldifferent_except_0": {
+        "body": "alldifferent_except_0(${1:vs});",
+        "description": "Constrain the array of integers vs to be all different except those elements that are assigned the value 0.",
+        "prefix": "all"
+    },
+    "alternative": {
+        "body": "alternative(${1:s0}, ${2:d0}, ${3:s}, ${4:d});",
+        "description": "Alternative constraint for optional tasks. Task ( s0, d0 ) spans the optional tasks ( s[i], d[i] ) in the array arguments and at most one can occur.",
+        "prefix": "alt"
+    },
+    "among": {
+        "body": "among(${1:n}, ${2:x}, ${3:v});",
+        "description": "Requires exactly n variables in x to take one of the values in v.",
+        "prefix": "amo"
+    },
+    "arg_max": {
+        "body": "arg_max(${1:x});",
+        "description": "Returns the index of the maximum value in the array x. When breaking ties the least index is returned.",
+        "prefix": "arg"
+    },
+    "arg_min": {
+        "body": "arg_min(${1:x});",
+        "description": "Returns the index of the minimum value in the array x. When breaking ties the least index is returned.",
+        "prefix": "arg"
+    },
+    "arg_sort": {
+        "body": "arg_sort(${1:x}, ${2:p});",
+        "description": "Constrains p to be the permutation which causes x to be in sorted order hence x [p[i]] <= x [p[i+1]].\nThe permutation is the stable sort hence x[p[i]] = x[p[i+1]] → p[i] < p[i+1].",
+        "prefix": "arg"
+    },
+    "at_least": {
+        "body": "at_least(${1:n}, ${2:x}, ${3:v});",
+        "description": "Requires at least n variables in x to take the value v.",
+        "prefix": "at_"
+    },
+    "at_most": {
+        "body": "at_most(${1:n}, ${2:x}, ${3:v});",
+        "description": "Requires at most n variables in x to take the value v.",
+        "prefix": "at_"
+    },
+    "at_most1": {
+        "body": "at_most1(${1:s});",
+        "description": "Requires that each pair of sets in s overlap in at most one element.",
+        "prefix": "at_"
+    },
+    "bin_packing": {
+        "body": "bin_packing(${1:c}, ${2:bin}, ${3:w});",
+        "description": "Requires that each item i with weight w[i], be put into bin[i] such that the sum of the weights of the items in each bin does not exceed the capacity c.\nAssumptions:\n◦ forall i , w[i] >=0\n◦ c >=0\n",
+        "prefix": "bin"
+    },
+    "bin_packing_capa": {
+        "body": "bin_packing_capa(${1:c}, ${2:bin}, ${3:w});",
+        "description": "Requires that each item i with weight w[i], be put into bin[i] such that the sum of the weights of the items in each bin b does not exceed the capacity c[b].\nAssumptions:\n◦ forall i , w[i] >=0\n◦ forall b , c[b] >=0\n",
+        "prefix": "bin"
+    },
+    "bin_packing_load": {
+        "body": "bin_packing_load(${1:load}, ${2:bin}, ${3:w});",
+        "description": "Requires that each item i with weight w[i], be put into bin[i] such that the sum of the weights of the items in each bin b is equal to load[b].\nAssumptions:\n◦ forall i , w[i] >=0\n",
+        "prefix": "bin"
+    },
+    "circuit": {
+        "body": "circuit(${1:x});",
+        "description": "Constrains the elements of x to define a circuit where x[i] = j means that j is the successor of i.",
+        "prefix": "cir"
+    },
+    "count": {
+        "body": "count(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "count_eq": {
+        "body": "count_eq(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "count_geq": {
+        "body": "count_geq(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be greater than or equal to the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "count_leq": {
+        "body": "count_leq(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be less than or equal to the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "count_lt": {
+        "body": "count_lt(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be strictly less than the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "count_neq": {
+        "body": "count_neq(${1:x}, ${2:y}, ${3:c});",
+        "description": "Constrains c to be not equal to the number of occurrences of y in x.",
+        "prefix": "cou"
+    },
+    "cumulative": {
+        "body": "cumulative(${1:s}, ${2:d}, ${3:r}, ${4:b});",
+        "description": "Requires that a set of tasks given by start times s, durations d, and resource requirements r, never require more than a global resource bound b at any one time.\nIf start times are optional variables, absent tasks do not need to be scheduled.\nAssumptions:\n◦ forall i, d[i] >= 0 and r[i] >= 0",
+        "prefix": "cum"
+    },
+    "decreasing": {
+        "body": "decreasing(${1:x});",
+        "description": "Requires that the array x is in decreasing order (duplicates are allowed).",
+        "prefix": "dec"
+    },
+    "diffn": {
+        "body": "diffn(${1:x}, ${2:y}, ${3:dx}, ${4:dy});",
+        "description": "Constrains rectangles i, given by their origins ( x[i], y[i] ) and sizes ( dx[i], dy[i] ), to be non-overlapping. Zero-width rectangles can still not overlap with any other rectangle.",
+        "prefix": "dif"
+    },
+    "diffn_k": {
+        "body": "diffn_k(${1:box_posn}, ${2:box_size});",
+        "description": "Constrains k-dimensional boxes to be non-overlapping. For each box i and dimension j, box_posn[i, j] is the base position of the box in dimension j, and box_size[i, j] is the size in that dimension. Boxes whose size is 0 in any dimension still cannot overlap with any other box.",
+        "prefix": "dif"
+    },
+    "diffn_nonstrict": {
+        "body": "diffn_nonstrict(${1:x}, ${2:y}, ${3:dx}, ${4:dy});",
+        "description": "Constrains rectangles i, given by their origins ( x[i], y[i] ) and sizes ( dx[i], dy[i] ), to be non-overlapping. Zero-width rectangles can be packed anywhere.",
+        "prefix": "dif"
+    },
+    "diffn_nonstrict_k": {
+        "body": "diffn_nonstrict_k(${1:box_posn}, ${2:box_size});",
+        "description": "Constrains k-dimensional boxes to be non-overlapping. For each box i and dimension j, box_posn[i, j] is the base position of the box in dimension j, and box_size[i, j] is the size in that dimension. Boxes whose size is 0 in at least one dimension can be packed anywhere.",
+        "prefix": "dif"
+    },
+    "disjoint": {
+        "body": "disjoint(${1:s1}, ${2:s2});",
+        "description": "Requires that sets s1 and s2 do not intersect.",
+        "prefix": "dis"
+    },
+    "disjunctive": {
+        "body": "disjunctive(${1:s}, ${2:d});",
+        "description": "Requires that a set of tasks given by start times s and durations d do not overlap in time. Tasks with duration 0 can be scheduled at any time, even in the middle of other tasks.\nIf start times are optional variables, absent tasks do not need to be scheduled.\nAssumptions:\n◦ forall i, d[i] >= 0",
+        "prefix": "dis"
+    },
+    "disjunctive_strict": {
+        "body": "disjunctive_strict(${1:s}, ${2:d});",
+        "description": "Requires that a set of tasks given by start times s and durations d do not overlap in time. Tasks with duration 0 CANNOT be scheduled at any time, but only when no other task is running.\nIf start times are optional variables, absent tasks do not need to be scheduled.\nAssumptions:\n◦ forall i, d[i] >= 0",
+        "prefix": "dis"
+    },
+    "distribute": {
+        "body": "distribute(${1:card}, ${2:value}, ${3:base});",
+        "description": "Requires that card [i] is the number of occurences of value [i] in base. The values in value need not be distinct.",
+        "prefix": "dis"
+    },
+    "exactly": {
+        "body": "distribute(${1:card}, ${2:value}, ${3:base});",
+        "description": "Requires that card [i] is the number of occurences of value [i] in base. The values in value need not be distinct.",
+        "prefix": "exa"
+    },
+    "geost": {
+        "body": "geost(${1:k}, ${2:rect_size}, ${3:rect_offset}, ${4:shape}, ${5:x}, ${6:kind});",
+        "description": "A global non-overlap constraint for k-dimensional objects. It enforces that no two objects overlap.\nParameters:\n◦ k: the number of dimensions\n◦ rect_size: the size of each box in k dimensions\n◦ rect_offset: the offset of each box from the base position in k dimensions\n◦ shape: the set of rectangles defining the i-th shape. Assumption: Each pair of boxes in a shape must not overlap\n◦ x: the base position of each object. x[i, j] is the position of object i in dimension j\n◦ kind: the shape used by each object\n",
+        "prefix": "geo"
+    },
+    "geost_bb": {
+        "body": "geost_bb(${1:k}, ${2:rect_size}, ${3:rect_offset}, ${4:shape}, ${5:x}, ${6:kind}, ${7:l}, ${8:u});",
+        "description": "A global non-overlap constraint for k-dimensional objects. It enforces that no two objects overlap, and that all objects fit within a global k-dimensional bounding box.\nParameters:\n◦ k: the number of dimensions\n◦ rect_size: the size of each box in k dimensions\n◦ rect_offset: the offset of each box from the base position in k dimensions\n◦ shape: the set of rectangles defining the i-th shape. Assumption: Each pair of boxes in a shape must not overlap\n◦ x: the base position of each object. x[i, j] is the position of object i in dimension j\n◦ kind: the shape used by each object\n◦ l: is an array of lower bounds, l[i] is the minimum bounding box for all objects in dimension i\n◦ u: is an array of upper bounds, u[i] is the maximum bounding box for all objects in dimension i\n",
+        "prefix": "geo"
+    },
+    "geost_smallest_bb": {
+        "body": "geost_smallest_bb(${1:k}, ${2:rect_size}, ${3:rect_offset}, ${4:shape}, ${5:x}, ${6:kind}, ${7:l}, ${8:u});",
+        "description": "A global non-overlap constraint for k-dimensional objects. It enforces that no two objects overlap, and that all objects fit within a global k-dimensional bounding box. In addition, it enforces that the bounding box is the smallest one containing all objects, i.e., each of the 2k boundaries is touched by at least by one object.\nParameters:\n◦ k: the number of dimensions\n◦ rect_size: the size of each box in k dimensions\n◦ rect_offset: the offset of each box from the base position in k dimensions\n◦ shape: the set of rectangles defining the i-th shape. Assumption: Each pair of boxes in a shape must not overlap\n◦ x: the base position of each object. x[i, j] is the position of object i in dimension j\n◦ kind: the shape used by each object\n◦ l: is an array of lower bounds, l[i] is the minimum bounding box for all objects in dimension i\n◦ u: is an array of upper bounds, u[i] is the maximum bounding box for all objects in dimension i\n",
+        "prefix": "geo"
+    },
+    "global_cardinality": {
+        "body": "global_cardinality(${1:x}, ${2:cover}, ${3:counts});",
+        "description": "Requires that the number of occurrences of cover[i] in x is counts[i].",
+        "prefix": "glob"
+    },
+    "global_cardinality_closed": {
+        "body": "global_cardinality_closed(${1:x}, ${2:cover}, ${3:counts});",
+        "description": "Requires that the number of occurences of i in x is counts [i].\nThe elements of x must take their values from cover.",
+        "prefix": "glob"
+    },
+    "global_cardinality_low_up": {
+        "body": "global_cardinality_low_up(${1:x}, ${2:cover}, ${3:lbound}, ${4:ubound});",
+        "description": "Requires that for all i , the value cover[i] appears at least lbound [i] and at most ubound[i] times in the array x.",
+        "prefix": "glob"
+    },
+    "global_cardinality_low_up_closed": {
+        "body": "global_cardinality_low_up_closed(${1:x}, ${2:cover}, ${3:lbound}, ${4:ubound});",
+        "description": "Requires that for all i , the value cover[i] appears at least lbound [i] and at most ubound[i] times in the array x.\nThe elements of x must take their values from cover.",
+        "prefix": "glob"
+    },
+    "increasing": {
+        "body": "increasing(${1:x});",
+        "description": "Requires that the array x is in increasing order (duplicates are allowed).",
+        "prefix": "inc"
+    },
+    "int_set_channel": {
+        "body": "int_set_channel(${1:x}, ${2:y});",
+        "description": "Requires that array of int variables x and array of set variables y are related such that ( x[i] = j ) if and only if ( i in y [j] ).",
+        "prefix": "cha"
+    },
+    "inverse": {
+        "body": "inverse(${1:f}, ${2:invf});",
+        "description": "Constrains two arrays of int variables, f and invf , to represent inverse functions. All the values in each array must be within the index set of the other array.",
+        "prefix": "inv"
+    },
+    "inverse_set": {
+        "body": "inverse_set(${1:f}, ${2:invf});",
+        "description": "Constrains two arrays of set of int variables, f and invf, so that a j in f[i] iff i in invf[j]. All the values in each array’s sets must be within the index set of the other array.",
+        "prefix": "inv"
+    },
+    "knapsack": {
+        "body": "knapsack(${1:w}, ${2:p}, ${3:x}, ${4:W}, ${5:P});",
+        "description": "Requires that items are packed in a knapsack with certain weight and profit restrictions.\nAssumptions:\n◦ Weights w and profits p must be non-negative\n◦ w , p and x must have the same index sets\nParameters:\n◦ w: weight of each type of item\n◦ p: profit of each type of item\n◦ x: number of items of each type that are packed\n◦ W: sum of sizes of all items in the knapsack\n◦ P: sum of profits of all items in the knapsack\n",
+        "prefix": "kna"
+    },
+    "lex2": {
+        "body": "lex2(${1:x});",
+        "description": "Require adjacent rows and adjacent columns in the array x to be lexicographically ordered. Adjacent rows and adjacent columns may be equal.",
+        "prefix": "lex"
+    },
+    "lex_greater": {
+        "body": "lex_greater(${1:x}, ${2:y});",
+        "description": "Requires that the array x is strictly lexicographically greater than array y . Compares them from first to last element, regardless of indices.",
+        "prefix": "lex"
+    },
+    "lex_greatereq": {
+        "body": "lex_greatereq(${1:x}, ${2:y});",
+        "description": "Requires that the array x is lexicographically greater than or equal to array y . Compares them from first to last element, regardless of indices.",
+        "prefix": "lex"
+    },
+    "lex_less": {
+        "body": "lex_less(${1:x}, ${2:y});",
+        "description": "Requires that the array x is strictly lexicographically less than array y . Compares them from first to last element, regardless of indices.",
+        "prefix": ""
+    },
+    "lex_lesseq": {
+        "body": "lex_lesseq(${1:x}, ${2:y});",
+        "description": "Requires that the array x is lexicographically less than or equal to array y . Compares them from first to last element, regardless of indices.",
+        "prefix": "lex"
+    },
+    "link_set_to_booleans": {
+        "body": "link_set_to_booleans(${1:s}, ${2:b});",
+        "description": "Constrain the array of Booleans b to be a representation of the set s : i in s if and only if b[i].\n The index set of b must be a superset of the possible values of s.",
+        "prefix": "lin"
+    },
+    "maximum": {
+        "body": "maximum(${1:m}, ${2:x});",
+        "description": "Constrains m to be the maximum of the values in x.\nAssumption:\n◦ | x | > 0",
+        "prefix": "max"
+    },
+    "maximum_arg": {
+        "body": "maximum_arg(${1:x}, ${2:i});",
+        "description": "Constrain i to be the index of the maximum value in the array x. When breaking ties the least index is returned.\nAssumption:\n◦ | x | > 0",
+        "prefix": "max"
+    },
+    "member": {
+        "body": "member(${1:x}, ${2:y});",
+        "description": "Requires that y occurs in the array x.",
+        "prefix": "mem"
+    },
+    "minimum": {
+        "body": "minimum(${1:m}, ${2:x});",
+        "description": "Constrains m to be the minimum of the values in x.\nAssumption:\n◦ | x | > 0",
+        "prefix": "min"
+    },
+    "minimum_arg": {
+        "body": "minimum_arg(${1:x}, ${2:i});",
+        "description": "Constrain i to be the index of the minimum value in the array x. When breaking ties the least index is returned.\nAssumption:\n◦ | x | > 0",
+        "prefix": "min"
+    },
+    "network_flow": {
+        "body": "network_flow(${1:arc}, ${2:balance}, ${3:flow});",
+        "description": "Defines a network flow constraint.\nParameters:\n◦ arc: a directed arc of the flow network. Arc i connects node arc[i, 1] to node arc[i, 2].\n◦ balance: the difference between input and output flow for each node.\n◦ flow: the flow going through each arc.",
+        "prefix": "net"
+    },
+    "network_flow_cost": {
+        "body": "network_flow_cost(${1:arc}, ${2:balance}, ${3:weight}, ${4:flow}, ${5:cost});",
+        "description": "Defines a network flow constraint with cost.\nParameters:\n◦ arc: a directed arc of the flow network. Arc i connects node arc[i, 1] to node arc[i, 2].\n◦ balance: the difference between input and output flow for each node.\n◦ weight: the unit cost of the flow through the arc.\n◦ flow: the flow going through each arc.\n◦ cost: the overall cost of the flow.",
+        "prefix": "net"
+    },
+    "nvalue": {
+        "body": "nvalue(${1:n}, ${2:x});",
+        "description": "Requires that the number of distinct values in x is n.",
+        "prefix": "nv"
+    },
+    "partition_set": {
+        "body": "partition_set(${1:S}, ${2:universe});",
+        "description": "Constrains the sets in array S to partition the universe.",
+        "prefix": "par"
+    },
+    "range": {
+        "body": "range(${1:x}, ${2:s}, ${3:t});",
+        "description": "Requires that the image of function x (represented as an array) on set of values s is t. ub(s) must be a subset of index_set(x) otherwise an assertion failure will occur.",
+        "prefix": "ran"
+    },
+    "regular": {
+        "body": "regular(${1:x}, ${2:Q}, ${3:S}, ${4:d}, ${5:q0}, ${6:F});",
+        "description": "The sequence of values in array x (which must all be in the range 1..S) is accepted by the DFA of Q states with input 1..S and transition function d (which maps (1..Q, 1..S) -> 0..Q) and initial state q0 (which must be in 1..Q) and accepting states F (which all must be in 1..Q). We reserve state 0 to be an always failing state.",
+        "prefix": "reg"
+    },
+    "regular_nfa": {
+        "body": "regular_nfa(${1:x}, ${2:Q}, ${3:S}, ${4:d}, ${5:q0}, ${6:F});",
+        "description": "The sequence of values in array x (which must all be in the range 1..S) is accepted by the NFA of Q states with input 1..S and transition function d (which maps (1..Q, 1..S) -> set of 1..Q) and initial state q0 (which must be in 1..Q) and accepting states F (which all must be in 1..Q).",
+        "prefix": "reg"
+    },
+    "roots": {
+        "body": "roots(${1:x}, ${2:s}, ${3:t});",
+        "description": "Requires that x[i] in t for all i in s.",
+        "prefix": "roo"
+    },
+    "sliding_sum": {
+        "body": "sliding_sum(${1:low}, ${2:up}, ${3:seq}, ${4:vs});",
+        "description": "Requires that in each subsequence vs[i], …, vs[i + seq - 1] the sum of the values belongs to the interval [low, up].",
+        "prefix": "sli"
+    },
+    "sort": {
+        "body": "sort(${1:x}, ${2:y});",
+        "description": "Requires that the multiset of values in x are the same as the multiset of values in y but y is in sorted order.",
+        "prefix": ""
+    },
+    "span": {
+        "body": "span(${1:s0}, ${2:d0}, ${3:s}, ${4:d});",
+        "description": "Span constraint for optional tasks. Task ( s0, d0 ) spans the optional tasks ( s[i], d[i] ) in the array arguments.",
+        "prefix": "spa"
+    },
+    "strict_lex2": {
+        "body": "strict_lex2(${1:x});",
+        "description": "Require adjacent rows and adjacent columns in the array x to be lexicographically ordered. Adjacent rows and adjacent columns cannot be equal.",
+        "prefix": "lex"
+    },
+    "subcircuit": {
+        "body": "subcircuit(${1:x});",
+        "description": "Constrains the elements of x to define a subcircuit where x[i] = j means that j is the successor of i and x[i] = i means that i is not in the circuit.",
+        "prefix": "sub"
+    },
+    "sum_pred": {
+        "body": "sum_pred(${1:i}, ${2:sets}, ${3:cs}, ${4:s});",
+        "description": "Requires that the sum of cs[i1].. cs[iN] equals s, where i1..iN are the elements of the ith set in sets.\n\nNb: not called ‘sum’ as in the constraints catalog because ‘sum’ is a MiniZinc built-in function.",
+        "prefix": "sum"
+    },
+    "symmetric_all_different": {
+        "body": "symmetric_all_different(${1:x});",
+        "description": "Requires the array of integers x to be all different, and for all i , x[ i ] = j → x[ j ] = i.",
+        "prefix": "sym"
+    },
+    "table": {
+        "body": "table(${1:x}, ${2:t});",
+        "description": "Represents the constraint x in t where we consider each row in t to be a tuple and t as a set of tuples.",
+        "prefix": "tab"
+    },
+    "value_precede": {
+        "body": "value_precede(${1:s}, ${2:t}, ${3:x});",
+        "description": "Requires that s precede t in the array x . Precedence means that if any element of x is equal to t , then another element of x with a lower index is equal to s.",
+        "prefix": "valu"
+    },
+    "value_precede_chain": {
+        "body": "value_precede_chain(${1:c}, ${1:x});",
+        "description": "Requires that c[i] precedes c[i + 1] in the array x. Precedence means that if any element of x is equal to c[i + 1], then another element of x with a lower index is equal to c[i].",
+        "prefix": "valu"
+    }
+}
